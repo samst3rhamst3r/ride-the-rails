@@ -1,6 +1,18 @@
 import pytest
-from . import train_card as tc
+from .train_card import TrainCard, TrainType
 
-def test_locomotive():
-    locomotive = tc.TrainType("Locomotive")
-    assert locomotive is tc.TrainType.LOCOMOTIVE
+class TestTrainType:
+
+    def test_reg_train_type(self):
+        t = TrainType("Box")
+        assert t is TrainType.BOX
+    
+class TestTrainCard:
+
+    def test_train_card_str_init(self):
+        t = TrainCard("Locomotive")
+        assert t.type is TrainType.LOCOMOTIVE
+    
+    def test_train_card_enum_init(self):
+        t = TrainCard(TrainType.LOCOMOTIVE)
+        assert t.type is TrainType.LOCOMOTIVE

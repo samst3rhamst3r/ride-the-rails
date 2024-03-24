@@ -14,12 +14,9 @@ class PathColor(enum.Enum):
     
 class Path:
 
-    def __init__(self, loc1, loc2, length, colors, owners=None) -> None:
-        self.loc1 = loc1
-        self.loc2 = loc2
+    def __init__(self, endpoints, length, colors, owners=None) -> None:
+        self.endpoints = endpoints
         self.length = length
         self.colors = colors
         
         self.owners = [] if owners is None else owners
-
-    

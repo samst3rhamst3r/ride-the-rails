@@ -28,3 +28,9 @@ class TrainCard:
 
     def __init__(self, type: TrainType | str) -> None:
         self.type = TrainType(type)
+
+    def get_path_type(self):
+        return self._train_path_map[self.type]
+    
+    def is_path_color(self, path_color):
+        return self.get_path_type() is path_color
